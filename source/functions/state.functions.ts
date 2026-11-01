@@ -11,3 +11,13 @@ export function createState<Type>(value: Type): StateId<Type> {
 
     return id
 }
+
+export function getState<Type>(id: StateId<Type>): Type {
+    const denseIndex = runtime.stateDenseIndexLookup[id]
+    return runtime.statevalues[denseIndex] as Type
+}
+
+export function setState<Type>(id: StateId<Type>, value: Type) {
+    const denseIndex = runtime.stateDenseIndexLookup[id]
+    runtime.statevalues[denseIndex] = value
+}
