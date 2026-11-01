@@ -165,6 +165,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@blankways/identity':
+        specifier: 0.1.0-alpha.11f2a73
+        version: 0.1.0-alpha.11f2a73
     devDependencies:
       tsc-alias:
         specifier: ^1.9.9
@@ -177,6 +181,9 @@ importers:
         version: 5.0.5(vite@8.3.5)
 
 packages:
+
+  '@blankways/identity@0.1.0-alpha.11f2a73':
+    resolution: {integrity: sha512-yUlKiA9rYVLPrqq1FqvRDWkaDkWTptMSBEyCowDKu7pJD2Ntrrl0mjugu/29yXmgA3moanrYENHvldLmSNFZBg==}
 
   '@jridgewell/resolve-uri@3.1.2':
     resolution: {integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==}
@@ -829,6 +836,8 @@ packages:
     hasBin: true
 
 snapshots:
+
+  '@blankways/identity@0.1.0-alpha.11f2a73': {}
 
   '@jridgewell/resolve-uri@3.1.2': {}
 
