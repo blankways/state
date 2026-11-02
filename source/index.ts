@@ -1,3 +1,2 @@
 export * from './classes/index.js'
-export * from './types/index.js'
-export * from './functions/index.js'
+export { StateId, WatcherId, Watcher, GlobalWatcher } from './types/index.js'
