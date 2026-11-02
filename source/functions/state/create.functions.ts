@@ -1,6 +1,6 @@
 import { runtime } from '@/runtime.js'
-import { createStateId } from '@/functions/identity.functions.js'
-import type { StateId } from '@/types/state.types.js'
+import { createStateId } from '@/functions/index.js'
+import type { StateId } from '@/types/index.js'
 
 export function createState<Type>(value: Type): StateId<Type> {
     const id = createStateId<Type>()

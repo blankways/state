@@ -1,6 +1,5 @@
 import { Identity } from '@blankways/identity'
-import type { RuntimeState } from '@/types/runtime.types.js'
-import type { GlobalWatcher, Watcher, WatcherData } from '@/types/state.types.js'
+import type { RuntimeState, GlobalWatcher, Watcher, WatcherData } from '@/types/index.js'
 
 // State shared by API functions for the lifetime of this module.
 export const runtime: RuntimeState = {

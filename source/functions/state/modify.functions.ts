@@ -1,6 +1,5 @@
 import { runtime } from '@/runtime.js'
-import type { StateId } from '@/types/state.types.js'
-import type { WatcherSingle, WatcherTuple } from '@/types/state.types.js'
+import type { StateId, WatcherSingle, WatcherTuple } from '@/types/index.js'
 
 export function getState<Type>(id: StateId<Type>): Type {
     const denseIndex = runtime.stateValuesDenseIndexLookup[id]

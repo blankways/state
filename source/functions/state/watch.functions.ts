@@ -1,10 +1,8 @@
 import { Identity } from '@blankways/identity'
 import { runtime } from '@/runtime.js'
-import { createWatcherId } from '@/functions/identity.functions.js'
-import type { StateId, WatcherId } from '@/types/state.types.js'
-import type { GlobalWatcher, Watcher, WatcherSingle, WatcherTuple, WatcherData } from '@/types/state.types.js'
+import { getState, createWatcherId } from '@/functions/index.js'
 import { AllStatesFamily, type AllStates } from '@/utils/state.utils.js'
-import { getState } from './modify.functions.js'
+import type { StateId, WatcherId, GlobalWatcher, Watcher, WatcherSingle, WatcherTuple, WatcherData } from '@/types/index.js'
 
 function incrementStateReference(stateDenseIndex: number): void {
     const currentRefs = runtime.stateValuesReferences[stateDenseIndex] || 0
