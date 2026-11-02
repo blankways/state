@@ -5,6 +5,10 @@ export type RuntimeState = {
     readonly watcherFamily: WatcherFamily
 
     readonly stateValues: Array<unknown>
+    readonly stateValuesReferences: Array<number>
+    readonly stateValueWatchers: Array<number[]>
+    readonly stateValuesActivatedHooks: Array<[() => void]>
+    readonly stateValuesDectivatedHooks: Array<[() => void]>
 
     readonly stateWatchers: Array<Watcher>
     readonly stateGlobalWatchers: Array<GlobalWatcher>
