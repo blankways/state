@@ -1,6 +1,6 @@
 {
   "name": "@blankways/state",
-  "version": "0.1.0-alpha.0fa9abb",
+  "version": "0.1.0-alpha.b230ce1",
   "description": "",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
