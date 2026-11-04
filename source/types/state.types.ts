@@ -28,3 +28,13 @@ export type Watcher<T extends StateId<unknown> | readonly StateId<unknown>[] = A
 export type GlobalWatcher = (id: StateId<unknown>, current: unknown, previous: unknown) => void
 
 export type WatcherData = [ StateId<unknown>[], unknown[], unknown[], number[] ]
+
+export type StatesValues<States extends readonly StateId<unknown>[]> = {
+  [Key in keyof States]: States[Key] extends StateId<infer T> ? T : never
+}
+
+export type ComputeFn<States extends readonly StateId<unknown>[], Type> = (
+  currentValues: StatesValues<States>, 
+  previousValues: StatesValues<States>, 
+  changedIdx: number
+) => Type
