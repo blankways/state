@@ -1,4 +1,4 @@
-import { createState, setState, getState, watchState, unwatchState, activateState, deactivateState, createCompute } from '@/functions/index.js'
+import { createState, setState, getState, watchState, unwatchState, activateState, deactivateState, createCompute, disposeCompute } from '@/functions/index.js'
 import { AllStates } from '@/utils/state.utils.js'
 
 export class State {
@@ -10,5 +10,6 @@ export class State {
     static readonly activated = activateState
     static readonly deactivated = deactivateState
     static readonly compute = createCompute
+    static readonly uncompute = disposeCompute
     static readonly AllStates = AllStates
 }
