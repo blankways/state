@@ -1,5 +1,5 @@
 import { runtime } from '@/runtime.js'
-import type { StateId, WatcherSingle, WatcherTuple } from '@/types/index.js'
+import type { StateId, WatcherSingle, WatcherMultiple } from '@/types/index.js'
 
 export function getState<Type>(id: StateId<Type>): Type {
     const denseIndex = runtime.stateValuesDenseIndexLookup[id]
@@ -37,7 +37,7 @@ export function setState<Type>(id: StateId<Type>, value: Type) {
                 data[2][localIdx] = data[1][localIdx]
                 data[1][localIdx] = value
 
-                const tupleWatcher = watcher as WatcherTuple<readonly StateId<unknown>[]>
+                const tupleWatcher = watcher as WatcherMultiple<readonly StateId<unknown>[]>
                 tupleWatcher(data[0], data[1], data[2], localIdx)
             }
         }

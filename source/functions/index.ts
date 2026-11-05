@@ -1,2 +1,2 @@
 export * from './state/index.js'
-export * from './identity.functions.js'
+export * from './collection/index.js'
