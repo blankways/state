@@ -1,7 +1,6 @@
 import type { Family, Identifier } from '@blankways/identity'
+import type { StateId } from './shared.types.js'
 
-export type StateFamily = Family<'@blankways/state(state)'>
-export type StateId<Type> = Identifier<StateFamily, Type>
 
 export type WatcherFamily = Family<'@blankways/state(watcher)'>
 export type WatcherId = Identifier<WatcherFamily>
@@ -17,8 +16,8 @@ export type WatcherTuple<T extends readonly StateId<unknown>[]> = (
     updatedIdx: number
 ) => void
 
-type AnyStateId = StateId<unknown> | readonly StateId<unknown>[]
-export type Watcher<T extends StateId<unknown> | readonly StateId<unknown>[] = AnyStateId> = 
+type UnknownStateId = StateId<unknown> | readonly StateId<unknown>[]
+export type Watcher<T extends StateId<unknown> | readonly StateId<unknown>[] = UnknownStateId> = 
     T extends readonly StateId<unknown>[] 
         ? WatcherTuple<T>
         : T extends StateId<infer U>
@@ -28,13 +27,3 @@ export type Watcher<T extends StateId<unknown> | readonly StateId<unknown>[] = A
 export type GlobalWatcher = (id: StateId<unknown>, current: unknown, previous: unknown) => void
 
 export type WatcherData = [ StateId<unknown>[], unknown[], unknown[], number[] ]
-
-export type StatesValues<States extends readonly StateId<unknown>[]> = {
-  [Key in keyof States]: States[Key] extends StateId<infer T> ? T : never
-}
-
-export type ComputeFn<States extends readonly StateId<unknown>[], Type> = (
-  currentValues: StatesValues<States>, 
-  previousValues: StatesValues<States>, 
-  changedIdx: number
-) => Type

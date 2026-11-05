@@ -1,4 +1,5 @@
-import type { StateFamily, WatcherFamily, Watcher, WatcherData, GlobalWatcher } from '@/types/state.types.js'
+import type { StateFamily } from '@/types/shared.types.js'
+import type { WatcherFamily, Watcher, WatcherData, GlobalWatcher, WatcherId } from '@/types/watch.types.js'
 
 export type RuntimeState = {
     readonly stateFamily: StateFamily
@@ -19,4 +20,6 @@ export type RuntimeState = {
     readonly stateValuesDenseIndexLookup: Array<number>
     readonly stateWatchersDenseIndexLookup: Array<number>
     readonly stateGlobalWatchersDenseIndexLookup: Array<number>
+
+    readonly computeWatchers: Array<WatcherId>
 }
